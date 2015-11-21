@@ -1,52 +1,78 @@
-//Build an 'adjective'
-var buzzword = [
-	['word1','wikipedia.org/'],
-	['word2','google.com']
-];
+// array of type of app
+var typeofapp = Array(
+	"an iOS app",
+	"a Chrome extension",
+	"a website",
+	"an Android app",
+	"an Oculus Rift app",
+	"a Windows app",
+	"a search engine",
+	"an iPad app",
+	"a browser plugin",
+	"a game",
+	"a Leap Motion app"
+	);
+// array of verbs
+var verb = Array(
+	"optimizes",
+	"helps with",
+	"improves",
+	"enables"
+	);
+// array of what app does
+var whatitdoes = Array(
+	"dating",
+	"music sharing",
+	"eating food",
+	"education",
+	"school",
+	"college life",
+	"buying a house"
+	);
 
-// 'noun'
-var noun = [
-	['thing1','wikipedia.org/'],
-	['thing2','google.com']
-];
+// array of technologies to use
+var techOne = Array(
 
-// using 'tech'
-var tech = [
-	['tech1','wikipedia.org/'],
-	['tech2','google.com']
-];
+	"machine learning",
+	"neural networks",
+	"artificial intelligence",
+	"virtual reality"
+	);
 
-// return a random array index
-function randomize (array) {
-	return Math.floor(Math.random()) * array.length);
-}
+// array of other technologies to use
+var techTwo = Array(
+	"bitcoin",
+	"Backbone.js",
+	"Meteor.js",
+	"Node.js",
+	"React.js",
+	"the Twitter API",
+	"Haskell",
+	"MongoDB",
+	"CouchDB",
+	"Django",
+	"Flask",
+	"Ruby on Rails",
+	"Go",
+	"JQuery"
+	);
 
-// output the name and link of a buzzword
-// name is chooseBuzzword.name and link is chooseBuzzword.link
-function chooseBuzzword() {
-	var rand = randomize(buzzword);
-	return {
-		name: buzzword[rand][0];
-		link: buzzword[rand][1];
-	};
-}
-
-// output the name and link of a noun
-// name is chooseName.name and link is chooseName.link
-function chooseName() {
-	var rand = randomize(noun);
-	return {
-		name: noun[rand][0];
-		link: noun[rand][1];
-	};
-}
-
-// output the name and link of a tech
-// name is chooseTech.name and link is chooseTech.link
-function chooseTech() {
-	var rand = randomize(tech);
-	return {
-		name: tech[rand][0];
-		link: tech[rand][1];
-	};
-}
+// start 
+$(document).ready(function(){
+	function generate(){     
+		var randType = typeofapp[Math.floor(Math.random()*typeofapp.length)]; // pick something from 'typeofapp' array
+        $('#typeofapp').html(randType); // display on page
+        var randVerb = verb[Math.floor(Math.random()*verb.length)]; // repeat 
+        $('#verb').html(randVerb);
+        var randWhatItDoes = whatitdoes[Math.floor(Math.random()*whatitdoes.length)];
+        $('#whatitdoes').html(randWhatItDoes);
+        var randTechOne = techOne[Math.floor(Math.random()*techOne.length)];
+        $('#techOne').html(randTechOne);
+        var randTechTwo = techTwo[Math.floor(Math.random()*techTwo.length)];
+        $('#techTwo').html(randTechTwo);
+    } // close generate function
+    generate(); // call the generate function when the document is loaded
+    $('#new').click(function(){ // every time you click on the button
+        generate(); // you generate a cool new awesome idea for your next hackathon!!!
+    })
+}); // close 
