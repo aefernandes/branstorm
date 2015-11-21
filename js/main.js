@@ -46,6 +46,7 @@ function chooseName() {
 function chooseTech() {
 	var rand = randomize(tech);
 	return {
-			name: tech[rand][0];
-			link: tech[rand][1];
+		name: tech[rand][0];
+		link: tech[rand][1];
+	};
 }
